@@ -1,0 +1,4 @@
+transformers==3.5.1
+flair==0.7
+torch==1.5.1
+numpy==1.17.4

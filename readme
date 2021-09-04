@@ -1,0 +1,71 @@
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+ 
+		  	  extract.py  	
+
+  		  ** Running Instructions **           	        
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+
+* PLEASE DOWNLOAD FROM THIS LINK THE TRAINED MODEL - model_file: *
+
+https://drive.google.com/file/d/1-0p1JLpIv_idc8b_A8A5JUSngJtmUF1z/view?usp=sharing
+
+You can do it by just clicking on the download icon on top of the page.
+(The file was too big and I couldn't submit the assignment with it)
+
+
+If you want to *use the trained model* (without retraining the model), you should have in the current working directory the following files:
+
+1. extract.py
+2. RelationExtraction.py
+3. model_file
+4. requirements.txt
+
+
+If you want to *retrain the model* and then perform the prediction, you should have in the current working directory the following files:
+
+1. extract.py
+2. RelationExtraction.py
+3. Corpus.TRAIN.txt
+4. TRAIN.annotations
+5. Corpus.DEV.txt
+6. DEV.annotations
+7. requirements.txt
+
+
+First, please run:	pip install -r requirements.txt
+And then:	 	python3 extract.py test_file output_file
+
+
+* If you choose to retrain the model, note that at the end of the run you will have 2 additional files in the current working directory, which were outputted as part of the training process:
+
+1. TRAIN.predictions - the predictions on the training set (from the 8'th epoch).
+2. DEV.predictions  - the predictions on the dev set (from the 8'th epoch).
+
+* If you want, you can then use these files as an input to eval.py together with the corresponding annotations file.
+
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+ 
+		  	   eval.py  	
+
+  		  ** Running Instructions **           	        
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+
+In the current working directory you should have:
+
+1. eval.py
+2. requirements.txt
+
+If you didn't run it before, then run: 	pip install -r requirements.txt
+And then:	 		   	python3 eval.py test_annot test_preds
+
+
+* Running eval.py will output you 2 types of scores:
+ 
+1. Normal scores - in order to calculate these scores I use the terms of hit and a miss, when hit is when the prediction and the annotation are the same while ignoring determinants (as instructed in piazza) and miss is when the prediction and the annotation are not the same from any reason other than determiners.
+
+2. Generalized scores - in order to calculate these scores I use the terms of hit and a miss, when hit is when the prediction and the annotation are similar i.e. they have the same relation but the entities are not exact match and a miss is when the prediction and the annotation are not the same at all or when the prediction is not in the annotations file.
